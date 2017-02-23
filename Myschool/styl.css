@@ -1,0 +1,1130 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font-family: "微软雅黑";
+    font-size: 14px; 
+}
+ul,li{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+a{
+	text-decoration: none;
+	cursor: pointer;
+}
+.clear{
+	clear: both;
+}
+.auto{
+	margin: 0px auto;
+}
+/*使得块级元素居中*/
+.width{
+	width: 1150px;
+}
+.fl{
+	float: left;
+	display: inline;
+}
+.fr{
+	float: right;
+	display: inline;
+}
+
+.head-top{
+	height: 30px;
+	background: #323232;
+}
+.head-top-1{
+	height: 30px;
+	/*width: 400px;*/
+	line-height: 30px;
+	color: #e3dfd5;
+	overflow: hidden;
+	/*left: 375px;*/
+	position: relative;
+}
+.head-top .fl{
+	width: 400px;
+}
+.head-top .fl li{
+	display: block;
+	float: left;
+	margin-left: 13px;
+}
+.head-top .fr li{
+	display: block;
+	float: left;
+	margin-left: 10px;
+	padding-left: 13px;
+	box-sizing: border-box;
+}
+.head-top .fr li input{
+	position:relative;
+	display: none;
+    margin-top: 5px;
+    color: #fff;
+    background: rgba(121,121,121,0.9);
+}
+.head-top-1 li img{
+	margin-left: 3px;
+}
+.head-top-1 li a{
+	color: #e3dfd5;
+}
+.head-top-1 li a:hover{
+	color: #00a6ad;
+}
+.Img img{
+	vertical-align: middle;
+}
+.with .fr ul{
+	position: absolute;
+	left: 1159px;
+}
+.width .fr ul li{
+	padding-left:11px;
+}
+
+.head{
+	height: 124px;
+	background: url(images/head-bg.png) repeat-x;
+}
+.head .logo-box{
+	height: 90px;
+    margin: 0 auto;
+	width: 1150px;
+}
+.logo-box .fl{
+	position: relative;
+	width: 400px;
+	height: 90px;
+}
+.logo-box .fl img{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: auto 0;
+}
+.logo-box .fr{
+	width: 500px;
+	margin: 34px 0px 0 0;
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	text-align: right;
+	color: #fff;
+}
+.logo-box .fr span{
+	padding-left: 54px;
+	color: #fff;
+	height: 20px;
+	line-height: 20px;
+	width: 40px;
+}
+.logo-box .fr span a{
+	color: #fff;
+	height: 20px;
+	line-height: 20px;
+	padding-left: 5px;
+}
+.logo-box .fr span a:hover{
+	color: #ffff00;
+	height: 20px;
+	line-height: 20px;
+}
+
+/*----导航栏----start----*/
+.navbg{
+	height: 34px;
+	margin: 0 auto;
+	width: 1150px;
+}
+#navul li{
+	font-size: 16px;
+	width: 104px;
+	display: block;
+	height: 34px;
+	line-height: 34px;
+	float: left;
+	text-align: center;
+	font-weight: normal;
+	position: relative;
+	cursor: pointer;
+}
+#navul li>a:hover{
+	position: relative;
+	display: block;
+	width: 104px;
+	height: 33px;
+	background: rgb(186,0,0);
+}
+#navul li a{
+	color: #fff;
+}
+#navul li ul{
+	list-style-type: none ;
+	z-index: 900;
+	width: 1110px;
+	height: 230px;
+	position: absolute;
+	display: none;
+	top: 34px;
+	padding: 20px;
+	margin: 0 auto;
+ 	background-color: #fff;
+ 	opacity: 0.7;
+ 	filter: alpha(opacity=70);
+}
+ #navul .nav-main0{left:-0px;}
+ #navul .nav-main1{left:-104px;}
+ #navul .nav-main2{left:-208px;}
+ #navul .nav-main3{left:-312px;}
+ #navul .nav-main4{left:-416px;}
+ #navul .nav-main5{left:-520px;}
+ #navul .nav-main6{left:-624px;}
+ #navul .nav-main7{left:-728px;}
+ #navul .nav-main8{left:-832px;}
+ #navul .nav-main9{left:-936px;}
+ #navul .nav-main10{left:-1040px;}
+
+ #navul li .nav-left-list{
+ 	margin: 10px 0 0 40px;
+ 	width: 440px;
+ 	z-index: 999;
+ }
+/* 这一部分解决了多个div自适应宽度，分多行显示*/
+ #navul li .nav-left-list .nav-li{
+ 	position: relative;
+ 	height: 48px;
+ 	line-height: 48px;
+ 	margin: 0 5px;
+ 	float: left;
+ 	border-bottom: 1px solid #c8cccd;
+ 	display: inline;
+ /*.nav-li1,.nav-li1,.nav-li3都设置了宽度。在一行内显示，又限制了外边框的宽度*/
+ 	font-size: 14px;
+ 	padding-left: 20px;
+ 	text-align: left;
+ }
+ /* 这一部分解决了多个div自适应宽度，分多行显示*/
+#navul li .nav-left-list .nav-li1{
+	width: 120px;
+}
+#navul li .nav-left-list .nav-li2{
+	width: 115px;
+}
+#navul li .nav-left-list .nav-li3{
+	width: 170px;
+}
+
+#navul li .nav-left-list .nav-li a{
+	color: #5e605f;
+}
+#navul li .nav-left-list .nav-li a:hover{ 
+	color: #f90000;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+#navul li .nav-right-tu{
+	width: 510px;
+	height: 160px;
+}
+/*----导航栏----end----*/
+/*----校园文化-start----*/
+ #xiaoyuan-wenhua{
+      	/*通过设置overflow，可以使得超过方框的部分不显示*/
+      	overflow: hidden;
+      	width: 1150px;
+      	height: 390px;
+      	margin: 0px auto;
+      	position: relative;
+      	background-color: rgb(249,247,248);
+      	/*border: 1px solid black;*/
+      }
+      #pic li{
+      	position: absolute;
+      	z-index: 1;
+      	display: none;
+      	left: 0;
+      	top: 0;
+      	text-align: center;
+      }
+      /*不设置图片的大小，会出现只能显示图片的一部分，所以要设置和container一样大*/
+      #pic img{
+        width: 1150px;
+      	height: 390px;
+      }
+      #num{
+      	position: absolute;
+      	z-index: 2;
+      	left: 91%;
+      	bottom: 1px;
+      }
+      #num li{
+      	float: left;
+      	width: 20px;
+      	height: 20px;
+      	text-align: center;
+      	line-height: 20px;
+      	background: #666;
+      	color: #fff;
+      }
+      #num li.active{
+      	background: #f00;
+      }
+      .arrow{
+      	position: absolute;
+      	top: 45%;
+      	display: block;
+      	width: 30px;
+      	height: 60px;
+      	line-height: 60px;
+      	text-align: center;
+      	color: #fff;
+      	font-weight: bold;
+      	background-color: rgba(0,0,0,.3);
+      	z-index: 3;
+      	display: none;
+      }
+      .arrow:hover {
+      	background: rgba(0,0,0,.7);
+      }
+      #xiaoyuan-wenhua:hover .arrow{
+      	display: block;
+      }
+      #left{
+      	left: 2%;
+      }
+      #right{
+      	right: 2%;
+      }
+/*----校园文化-end----*/
+/*----校园新闻-fl.start----*/
+.xiaoyuan-xinwen{
+	background-color: rgb(244,242,238);
+	padding-top: 20px;
+	height: 412px;
+	overflow: hidden;
+}
+.xiaoyuan-xinwen .width{
+	width: 1150px;
+	margin: 0 auto;
+}
+.xiaoyuan .xy-biaoti{
+	width: 717px;
+	border-bottom: 1px solid #8D1516;
+}
+.xiaoyuan .xy-biaoti::after{
+	content: "";
+	display: block;
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	/*background-color: rgb(141,21,22);*/
+	border: 5px solid transparent;
+	border-top: 5px solid rgb(141,21,22);
+	border-right: 5px solid rgb(141,21,22);
+	transform:rotate(135deg);
+	/*position: absolute;
+*/	/*top: 1px;
+	left: 16px;*/
+    margin: 2px 40px;
+}
+.bt-bg{
+	padding-bottom: 7px;
+	height: 36px;
+	line-height: 36px;
+	color: #1a1a1a;
+	overflow: hidden;
+	font-size: 20px;
+}
+	.xiaoyuan{
+		width: 732px;
+		height: 402px;
+	}
+	.fl{
+		float: left;
+		display: inline;
+	}
+    .xiaoyuan-list{
+	   	height: 340px;
+	   	margin-top: 16px;
+	   	width: 732px;
+	   	background: rgb(244,242,238);
+	  /* 	display: inline;
+	   	float: left;
+	   	margin-right: 10px;
+*/
+	   }
+	  .xiaoyuan-list .colum{
+	   	float: left;
+	   	width: 228px;
+       	height: 338px;	
+       	background: rgb(252,254,255);
+       	border: 1px solid #e8e7e4;
+       	display: inline;
+	   	margin: 5px;
+	   }
+	   
+       a{
+       	text-decoration: none;
+       }
+       /*给dt设置宽度和高度，背景图片才会显示出来*/
+       .xiaoyuan-list dl dt{
+       /* position: relative;*/
+       	width: 200px;
+       	height: 122px;
+       	background-size: 100% auto;
+       	overflow: hidden;
+        margin: 15px auto 5px auto;
+       }
+       .dl-f2 dt{
+       	background-image: url(images/guanzhu1.jpg);
+       }
+       .dl-f1 dt{
+        background-image: url(images/guanzhu2.jpg);
+       }
+       .dl-f3 dt{
+       	background-image: url(images/guanzhu3.jpg);
+       }
+       .xiaoyuan-list dl dd{
+       	display: block;
+       }
+       .xiaoyuan-list dl dd .dd-bt{
+       	height: 48px;
+       	line-height: 24px;
+       	width: 200px;
+       	color: #333333;
+        font-size: 14px;
+        overflow: hidden;
+        margin-left: 14px;
+       }
+       .xiaoyuan-list dl dd .dd-zy{
+       	height: 88px;
+       	margin: 12px 0 16px 14px;
+       	line-height: 22px;
+       	color: #999999;
+       	font-size: 12px;
+       	overflow: hidden;
+
+       }
+       .xiaoyuan-list dl dd .dd-zyxia .liulan{
+       	height: 18px;
+       	line-height: 18px;
+       	font-size: 12px;
+       	margin-left: 174px;
+       }
+       .xiaoyuan-list dl dd .dd-zyxia .liulan a{
+       	color: #8D1516;
+       }
+       .dd-bt a{
+       	color: rgb(141,21,22);
+       }
+       .dd-bt:hover a{
+       	color: rgb(189,1,0);
+       }
+    /*右边新闻----start*/
+    .clear{
+    	clear: both;
+    }
+	.list2{
+		width: 400px;
+		height: 402px;
+		/*background-color: #f4f2ee;*/
+		/*padding: 50px 60px;*/
+		margin-top: -6px;
+		display: inline;
+		float: right;
+	}
+	.list-head{
+		display: inline;
+		float: left;
+		position: relative;
+	}
+	.sublist2{
+		height: 48px;
+		line-height: 48px;
+		border-bottom: 1px solid rgb(141,21,22);
+		/*border-top: 1px solid rgb(141,21,22);*/
+	}
+	.xyxw{
+		float: left;
+	}
+	.xyxw a{
+		font-size: 18px;
+		color: black;
+	}
+	.jrxw{
+		float: right;
+		margin-left: 240px;
+		position: relative;
+	}
+	.jrxw a{
+		font-size: 13px;
+		color: rgb(141,21,22);
+	}
+	.jrxw::after{
+		content: '';
+		display: block;
+		width: 6.15px;
+		height: 6.15px;
+		border: 1px solid transparent;
+		border-top: 1px solid rgb(141,21,22);
+		border-right: 1px solid rgb(141,21,22);
+		transform: rotate(44deg);
+		position: absolute;
+		top: 20px;
+		left: 71px;
+	}
+	
+	.list-head::after{
+		content: '';
+		display: block;
+		position: absolute;
+		width: 0px;
+		height: 0px;
+		border: 5px solid transparent;
+		border-right: 5px solid rgb(141,21,22);
+		border-top: 5px solid rgb(141,21,22);
+		left: 40px;
+		top: 43px;
+		transform: rotate(135deg);
+	}
+.sublist3{
+	padding-top: 10px;
+}
+/*不需要设置定位position，只要在两个子div中设置display:inline就可以*/
+	.tzlb{
+		height: 35px;
+		line-height: 35px;
+		border-bottom: 1px solid #C8C8C8;
+	}
+	.lbwzk{
+		float: left;
+		height: 35px;
+		line-height: 35px;
+	}
+	.tzlb a{
+		color: black;
+	}
+	.lbsik{
+		float: right;
+		height: 35px;
+		line-height: 35px;
+		color: #C8C8C8;
+        font-size: 12px;
+	}
+	.sublist3 .re a{
+		color: rgb(189,1,0);
+	}
+	.sublist3 .bl a:hover{
+		color: rgb(189,1,0);
+	}
+/*----校园文化-fr.end----*/
+/*----讲座报告-start----*/
+      .jzbg{
+       	position: relative;
+       	padding-top: 15px;
+       	background: rgb(249,247,248);
+       }
+       .jzbg .jz-biaoti{
+       	border-bottom: 1px solid #90382f;
+       	width: 1150px;
+       } 
+       .jz-biaoti::after{
+       	content: "";
+       	position: absolute;
+       	display: block;
+       	width: 0px;
+       	height: 0px;
+       	border: 5px solid transparent;
+       	border-top: 5px solid #90382f;
+       	border-right: 5px solid #90382f;
+       	transform: rotate(135deg);
+       	margin: 0 40px;
+       }
+       .jzbg .jz-biaoti a{
+       	font-size: 20px;
+       	color: black;
+       }
+       .jzbg img:hover{
+         background-image: url(images/down.png);
+       }
+       .jz-biaoti{
+     /*  	position: absolute;设置绝对定位后，后面的内容会自动浮上来，因为绝对定位的元素会脱离文档流，不占据原来的空间*/
+       	left: 0px;
+       	margin: 0 50px 10px auto;
+       }
+      .jzbg-foot{
+      	transition: 3s;
+      }
+      
+       .jzbg-list{
+         left: 0px;
+         width: 1150px;
+         height: 150px;
+       }
+      /* .jzbg-list .jzbg-top{
+       	position: absolute;
+       	top: 60px;
+       	left: 200px;
+       }*/
+       .jzbg-list li{
+       	width: 355px;
+       	margin-right: 28px;
+       	height: 135px;
+       	float: left;
+       	display: inline;
+       	/*background: #90382f;*/
+       }
+       .jzbg-list li .jz-img{
+       	width: 90px;
+       	height: 120px;
+       	margin-top: 4px;
+       }
+      .jzbg-list li .jz-wenzi{
+       	position: relative;
+       	left: 15px;
+       	width: 245px;
+       	margin-top: 0px;
+      
+       }
+       .jz-wenzi .jz-bt{
+       	height: 65px;
+       	line-height: 20px;
+       }
+       .jz-wenzi .jz-bt a{
+       	color: #8f3931;
+       	font-weight: bold;
+       	font-size: 16px;
+       }
+       .jz-wenzi .jz-bt:hover a{
+       	color: red;
+       }
+       .jz-wenzi .jz-zy{
+       	position: relative;
+       	height: 60px;
+       	line-height: 20px;
+       	padding-left: 5px;
+       	padding-bottom: 4px;
+       	white-space: nowrap;
+       	font-size: 12px;
+       	color: #666;
+       	overflow: hidden;
+       }
+
+/*----讲座报告-end----*/
+
+/*----xinxi-start----*/
+.xinxi{
+		padding-left: 5px;
+		background: rgb(249,247,248);
+	}
+	.huiyi{
+		width: 100%;
+		background: rgb(249,247,248);
+		height: 440px;
+	}
+	.tongzhi{
+	    width: 437px;
+	    margin-left: -100%;
+	    height: 440px;
+	    background: rgb(249,247,248);
+	}
+
+	.tongzhi .xxtz{
+		float: left;
+		margin-right: 20px;
+		/*background-color: red;*/
+		display: block;
+	}
+	.tongzhi .xxtz .bt{
+		font-size: 20px;
+		color: #666;
+	}
+	.tongzhi .xxtz:hover .bt{
+		color: black;
+	}
+	.tongzhi .xxtz ul{
+		position:absolute;
+	}
+	.tongzhi .xxtz .xxgg{
+		display: none;
+		margin-left: -99px;
+	}
+	.zhuanti{
+		width: 295px;
+		margin-left: -295px;
+		height: 440px;
+	}
+	.huiyi .mainwrap{
+		margin-left: 437px;
+		margin-right: 295px;
+	}
+	.huiyi .mainwrap .hyhd a{
+		font-size: 20px;
+		color: black;
+	}
+	.hyhd span a:hover{
+		color: rgb(189,1,0);
+	}
+	.hyhd .circle{
+		display: inline-block;
+		width: 6px;
+		height: 6px;      
+		background-color:rgb(141,21,21);      
+		border-radius: 50%;      
+		-moz-border-radius: 50%;      
+		-webkit-border-radius: 50%;
+	}
+	.mainwrap ul li{
+		border-bottom: 1px solid rgb(141,21,22);
+		display: block;
+		height: 80px;
+	}
+	.mainwrap ul li .tl{
+		position: absolute;
+		height: 67px;
+		margin-top: 7px;
+		/*line-height: 67px;加上这个，底部的日期会跑到红色边框以外*/
+		width: 72px;
+		background: rgb(223,223,223);
+	}
+	.mainwrap ul li .tl .upriqi{
+		
+		font-weight: bold;
+		color: rgb(141,21,22);
+		font-size: 20px;
+		text-align: center;
+		margin: 15px auto;
+
+	}
+	.mainwrap ul li .tl .diriqi{
+		display: block;
+		position: absolute;
+		top: 46px;
+		text-align: center;
+		height: 20px;
+		width: 72px;
+		background: rgb(141,21,22);
+		font-size: 16px;
+		color: white;
+	}
+	.mainwrap ul li .wr{
+	/*	margin-left: 19px;*/
+		height: 79px;
+		width: 327px;
+		margin-top: 5px;
+		/*不给设置宽度，文字就无法自适应换行*/
+		line-height: 20px;
+       /* 用于设置每行文字所占的高度，若line-height为79，一行只能显示一行文字*/
+		vertical-align: middle;
+	}
+    .wr a{
+    	color: black;
+    }
+    .wr:hover a{
+    	color: rgb(189,1,0);
+    }
+    .tm{
+    	position: relative;
+    	left: 89px;
+    	top: 58px;
+    	color: #666;
+    	font-size: 8px;
+    }
+    .tm img{
+    	margin-right: 5px;
+    }
+	.xxtz-line{
+		width: 410px;
+		/*float: left;加上这个float，就不会把内容撑开*/
+		height: 40px;
+		line-height: 40px;
+		border-bottom: 1px solid rgb(141,21,22);
+	}
+	.xxtz-line:hover a{
+		color: rgb(189,1,0);
+	}
+	.xxtz-line a{
+		font-size: 14px;
+		color: black;
+	}
+	.xxtz-line span{
+		color: #666;
+		font-size: 12px;
+	}
+	.news{
+		float: left;
+	}
+	.date{
+		float: right;
+	}
+	.news a{
+		color: black;
+	}
+	.xxtz-line .date a{
+		color: #666;
+		font-size: 12px;
+	}
+	.news:hover a{
+		color: rgb(189,1,0);
+	}
+	.zhuanti .zt a{
+		font-size: 20px;
+		color: black;
+	}
+	.zhuanti .tu1 a{
+		background-image: url(kuaijie-images/zhuanti1.jpg);
+		width: 270px;
+		height: 172px;
+		z-index: 2;
+		display: block;
+		margin: 20px auto 30px auto;
+
+	}
+	.zhuanti .tu2 a{
+		display: block;
+		background-image: url(kuaijie-images/zhuanti2.jpg);
+		width: 270px;
+		height: 172px;
+		margin: 20px auto 30px auto;
+
+	}
+/*----xinxi-end----*/
+
+/*----kuaijie-start----*/
+ .kuaijie{
+ 	    background: rgb(249,247,248);
+	   	height: 130px;
+	   	padding-left: 5px;
+	   	overflow: hidden;
+	   }
+	   .kuaijie .kuaijie1{
+	   	width: 288px;
+	   	height: 114px;
+	   	overflow: hidden;
+	   	border-bottom:  10px solid #47729f;
+	   }
+       .kuaijie .kuaijie1-a{
+       	width: 288px;
+       	height: 114px;
+       	display: block;
+       	background-image: url(kuaijie-images/tu11-a.jpg);
+       	transition: background-image 2s ease;
+       	-moz-transition: background-image 2s ease; /* Firefox 4 */
+        -webkit-transition: background-image 2s ease; /* Safari and Chrome */
+        -o-transition: background-image 2s ease; /* Opera */
+       }
+       .kuaijie .kuaijie1-a:hover{
+       	width: 288px;
+       	height: 114px;
+       	display: block;
+       	background-image: url(kuaijie-images/tu11-hover.jpg);
+       	
+       }
+       .kuaijie .kuaijie2{
+	   	width: 278px;
+	   	height: 114px;
+	   	overflow: hidden;
+	   	margin-left: 7px;
+	   	border-bottom:  10px solid #c85a5d;
+	   }
+       .kuaijie .kuaijie2-a{
+       	width: 278px;
+       	height: 114px;
+       	display: block;
+       	background: url(kuaijie-images/tu12-a.jpg);
+       	transition: background-image 2s ease;
+       	-moz-transition: background-image 2s ease; /* Firefox 4 */
+        -webkit-transition: background-image 2s ease; /* Safari and Chrome */
+        -o-transition: background-image 2s ease; /* Opera */
+       }
+       .kuaijie .kuaijie2-a:hover{
+       	width: 278px;
+       	height: 114px;
+       	display: block;
+       	background: url(kuaijie-images/tu12-hover.jpg);
+       }
+       .kuaijie .kuaijie3{
+	   	width: 277px;
+	   	height: 114px;
+	   	overflow: hidden;
+	   	border-bottom:  10px solid #984348;
+        margin-left: 7px;
+	   }
+       .kuaijie .kuaijie3-a{
+       	width: 277px;
+       	height: 114px;
+        /*margin-left: 7px;在这设置而不是在上面设置margin-left，会导致边框的长度超出图片的宽度。出来了一部分，图片是在kuaijie3-a中，而边框是对kuaijie3加的*/
+       	display: block;
+       	background: url(kuaijie-images/tu13-a.jpg);
+        transition: background-image 2s ease;
+       	-moz-transition: background-image 2s ease; /* Firefox 4 */
+        -webkit-transition: background-image 2s ease; /* Safari and Chrome */
+        -o-transition: background-image 2s ease; /* Opera */
+       }
+       .kuaijie .kuaijie3-a:hover{
+       	width: 277px;
+       	height: 114px;
+       	display: block;
+       	background: url(kuaijie-images/tu13-hover.jpg);
+       }
+       .kuaijie .kuaijie4{
+	   	width: 275px;
+	   	height: 114px;
+	   	margin-left: 7px;
+	   	overflow: hidden;
+	   	border-bottom:  10px solid #ad2e1f;
+	   }
+       .kuaijie .kuaijie4-a{
+       	width: 275px;
+       	height: 114px;
+       	display: block;
+       	background: url(kuaijie-images/tu14-a.jpg);
+       	transition: background-image 2s ease;
+       	-moz-transition: background-image 2s ease; /* Firefox 4 */
+        -webkit-transition: background-image 2s ease; /* Safari and Chrome */
+        -o-transition: background-image 2s ease; /* Opera */
+       }
+       .kuaijie .kuaijie4-a:hover{
+       	width: 275px;
+       	height: 114px;
+       	display: block;
+       	background: url(kuaijie-images/tu14-hover.jpg);
+       }
+       .kuaijie .kuaijie5{
+	   	width: 288px;
+	   	height: 114px;
+	   	overflow: hidden;
+	   	border-bottom:  10px solid #c9595c;
+	   }
+       .kuaijie .kuaijie5-a{
+       	width: 288px;
+       	height: 114px;
+       	display: block;
+       	background: url(kuaijie-images/tu15-a.jpg);
+       	transition: background-image 2s ease;
+       	-moz-transition: background-image 2s ease; /* Firefox 4 */
+        -webkit-transition: background-image 2s ease; /* Safari and Chrome */
+        -o-transition: background-image 2s ease; /* Opera */
+       }
+       .kuaijie .kuaijie5-a:hover{
+       	width: 288px;
+       	height: 114px;
+       	display: block;
+       	background: url(kuaijie-images/tu15-hover.jpg);
+       }
+       .kuaijie .kuaijie6{
+	   	width: 278px;
+	   	height: 114px;
+	   	margin-left: 7px;
+	   	overflow: hidden;
+	   	border-bottom:  10px solid #c9595c;
+	   }
+       .kuaijie .kuaijie6-a{
+       	width: 278px;
+       	height: 114px;
+       	display: block;
+       	background: url(kuaijie-images/tu16-a.jpg);
+       	transition: background-image 2s ease;
+       	-moz-transition: background-image 2s ease; /* Firefox 4 */
+        -webkit-transition: background-image 2s ease; /* Safari and Chrome */
+        -o-transition: background-image 2s ease; /* Opera */
+       }
+       .kuaijie .kuaijie6-a:hover{
+       	width: 278px;
+       	height: 114px;
+       	display: block;
+       	background: url(kuaijie-images/tu16-hover.jpg);
+       }
+       .kuaijie .kuaijie7{
+	   	width: 277px;
+	   	height: 114px;
+	   	overflow: hidden;
+	   	margin-left: 7px;
+	   	border-bottom:  10px solid #895802;
+	   }
+       .kuaijie .kuaijie7-a{
+       	width: 277px;
+       	height: 114px;
+       	display: block;
+       	background: url(kuaijie-images/tu17-a.jpg);
+       	transition: background-image 2s ease;
+       	-moz-transition: background-image 2s ease; /* Firefox 4 */
+        -webkit-transition: background-image 2s ease; /* Safari and Chrome */
+        -o-transition: background-image 2s ease; /* Opera */
+       }
+       .kuaijie .kuaijie7-a:hover{
+       	width: 277px;
+       	height: 114px;
+       	display: block;
+       	background: url(kuaijie-images/tu17-hover.jpg);
+       }
+       .kuaijie .kuaijie8{
+	   	width: 275px;
+	   	height: 114px;
+	   	margin-left: 7px;
+	   	overflow: hidden;
+	   	border-bottom:  10px solid #0834f1;
+	   }
+       .kuaijie .kuaijie8-a{
+       	width: 275px;
+       	height: 114px;
+       	display: block;
+       	background: url(kuaijie-images/tu18-a.jpg);
+       	transition: background-image 2s ease;
+       	-moz-transition: background-image 2s ease; /* Firefox 4 */
+        -webkit-transition: background-image 2s ease; /* Safari and Chrome */
+        -o-transition: background-image 2s ease; /* Opera */
+       }
+       .kuaijie .kuaijie8-a:hover{
+       	width: 275px;
+       	height: 114px;
+       	display: block;
+       	background: url(kuaijie-images/tu18-hover.jpg);
+       }
+       .kuaijie .fl{
+       	float: left;
+       	display: inline;
+       }
+      .kuaijie .fr{
+       	float: left;
+       	/*float: right;设置了float：right，最后一列设置margin-left:7px不再其作用，距离大于7px;*/
+       	display: inline;
+       }
+
+/*----kuaijie-end----*/
+
+/*----foot-lianjie-start----*/
+.foot-dibu{
+	position: absolute;
+	width: 100%;
+	height: 393px;
+	background: rgb(45,45,45);
+	background-position: 0 320px;
+}
+.foot-dibu ul li a:hover{
+    color: rgb(136,0,0);
+}
+.foot-lianjie-box{
+	display: inline;
+	border-bottom: 1px solid rgb(249,247,248);
+}
+.foot-lianjie-box .wzlj{
+	width: 890px;
+	padding: 20px 0 0 0px;
+	height: 300px;
+	margin-left: 375px;
+}
+.foot-lianjie-box .wzlj .lianjie1{
+	display: inline;
+	width: 178px;
+	height: 300px;
+
+}
+.lianjie1 .lianjie-bt{
+	font-size: 20px;
+	/*font-weight: bold;*/
+	color: #fff;
+	height: 44px;
+	line-height: 44px;
+	width: 100%;
+
+}
+.lianjie1 .lianjie-list li{
+	height: 30px;
+	width: 178px;
+	line-height: 30px;
+	/*float: left;*/
+	overflow: hidden;
+}
+.lianjie1 .lianjie-list li a{
+	font-size: 14px;
+	/*font-weight: bold;*/
+	color: #fff;
+}
+.foot-dibu .erweima{
+	position: absolute;
+	width: 310px;
+	height: 220px;
+	display: inline;
+	top: 72px;
+	left: 1210px;
+	/*z-index: 4;*/
+
+}
+.foot-dibu .erweima .erweima-1{
+	width: 120px;
+	height: 170px;
+	margin-left: 25px;
+	float: right;
+}
+.foot-dibu .erweima .erweima-1 p{
+	font-size: 14px;
+	color: #fff;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	width: 120px;
+}
+
+.foot-fenxiang{
+	width: 1150px;
+	height: 60px;
+	line-height: 60px;
+	font-size: 12px;
+	color: #83827e;
+	margin: 12px auto 0 auto;
+}
+.foot-fenxiang-list{
+    width: 191px;
+    height: 35px;
+    float: left;
+    position: relative;
+}
+/*----foot-lianjie-end----*/
+/*----foot-start----*/
+.foot{
+	position: absolute;
+	width: 100%;
+	/*padding: 20px 0;*/
+	height: 96px;
+	background-color: rgb(141,21,22);
+	top: 2420px;
+}
+.foot .foot-top{
+	padding: 20px 0;
+	width: 1150px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	color: #e3dfd5;
+	margin: 0 auto;
+}
+.foot span{
+	margin-left: 40px;
+	font-size: 14px;
+}
+.foot .foot-bottom{
+	width: 1150px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	color: #e3dfd5;
+	margin: 0 auto;
+}
+/*----foot-end----*/

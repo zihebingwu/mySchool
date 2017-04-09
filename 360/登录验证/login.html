@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <style>
+      h1{
+      	color: rgb(255,101,55);
+      	text-align: center;
+      }
+      body{
+      	background: url(images/pic4.jpg);
+      	background-repeat: no-repeat;
+      }
+    </style>
+</head>
+<body onkeydown="checkData()">
+    <div id="background" style="position:absolute;z-index:-1;width:100%;height:100%;top:0px;left:0px;"><img src="images/pic4.jpg" width="100%" height="100%"/></div>
+
+	<form id="form1" name="form1" method="post"action="project.html" onsubmit="return checkData()" opacity:0.5;>
+	    <h1>欢迎注册itaotao</h1>
+		<table width="689" border="0" align="center" cellpadding="0" cellspacing="0" style="background-color:#C0DFEB">
+		<!-- 用户名 -->
+		<tr>
+			<td width="111" height="30" align="right" valign="middle" bgcolor="#99CCCC">用户名：</td>
+            <td width="202" height="30" align="left" valign="middle" bgcolor="#99CCCC"><label for="textfield"></label>
+            <input type="text" name="username" id="username" class="inputstyle" onBlur="checkUser()"/></td>
+            <td width="385" align="left" valign="middle" bgcolor="#99CCCC">
+            <div id="user_prompt">用户名由英文字母和数字组成的4-16位字符,以字母开头</div>
+            </td>
+		</tr>
+		<!-- 邮箱 -->
+		<tr>
+			<td width="111" height="30" align="right" valign="middle" bgcolor="#99CCCC">邮箱：</td>
+            <td width="202" height="30" align="left" valign="middle" bgcolor="#99CCCC"><label for="textfield"></label>
+            <input type="text" name="email" id="email" class="inputstyle" onBlur="checkEmail()"/></td>
+            <td width="385" align="left" valign="middle" bgcolor="#99CCCC">
+            </td>
+             <td width="385" align="left" valign="middle" bgcolor="#99CCCC">
+            <div id="email_prompt"></div>
+            </td>
+		</tr>
+		<!-- 手机号 -->
+		<tr>
+			<td height="30" align="right" valign="middle" bgcolor="#99CCCC">手机号码:</td>
+			<td height="30" align="left" valign="middle" bgcolor="#99CCCC"><input type="text" name="number" id="number" class="inputstyle" onBlur="checkTel()"/></td>
+			<td align="left" valign="middle" bgcolor="#99CCCC"><div id="number_prompt"></div></td>
+			</tr>
+        <!-- 密码 -->
+		<tr>
+			<td width="111" height="30" align="right" valign="middle" bgcolor="#99CCCC">密码：</td>
+			<td height="30" align="left" valign="middle" bgcolor="#99CCCC"><input type="password" name="psw" id="password" class="inputstyle" onBlur="checkPass()"/></td>
+			<td align="left" valign="middle" bgcolor="#99CCCC"><div id="pass_prompt"> 密码由英文字母和数字组成的4-10位字符 </div></td>
+		</tr>
+		<!-- 确认密码 -->		
+	    <tr>
+			<td width="111" height="30" align="right" valign="middle" bgcolor="#99CCCC">确认密码：</td>
+			<td height="30" align="left" valign="middle" bgcolor="#99CCCC"><input type="password" name="newpass" id="newpass" class="inputstyle" onblur="checkRepass()"/></td>
+			<td align="left" valign="middle" bgcolor="#99CCCC"><div id="repass_prompt"></div></td>
+		</tr>
+		<!-- 注册 -->
+        <tr>
+			<td height="30" colspan="3" align="center" valign="middle" bgcolor="#99CCCC"><input type="submit" name="submit" id="submit" value="提交注册"/>
+			</td>
+		</tr>
+
+		</table>
+
+	</form>
+	<script type="text/javascript">
+        //用户名验证
+		function checkUser(){
+			var user=document.getElementById("username").value;
+			var divUserId=document.getElementById("user_prompt");
+			var reg=/^[a-zA-Z][a-zA-Z0-9]{3,15}$/;
+			divUserId.innerHTML="";
+			if(user==""){
+				divUserId.innerHTML = "用户名不能为空";
+				return false;
+			}
+			if(reg.test(user)==false){
+			divUserId.innerHTML="用户名不正确";
+			return false;
+			}else{
+			divUserId.innerHTML="";
+			return true;
+		}
+		} 
+		function checkEmail(){ 
+			var emai=document.getElementById("email").value; 
+			var divEmailId=document.getElementById("email_prompt"); divEmailId.innerHTML=""; 
+			var reg=/^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/; 
+			if(reg.test(emai)==false){ 
+				divEmailId.innerHTML="邮件格式不正确，请重新输入"; return false; 
+			}else{
+				divEmailId.innerHTML=""; 
+				return true; 
+			} 
+			}
+        //确认密码验证 
+        function checkRepass(){ 
+        	var pass=document.getElementById("password").value;
+        	var repass=document.getElementById("newpass").value; 
+        	var divRepassId=document.getElementById("repass_prompt"); 
+        	if(pass!=repass){ 
+        		divRepassId.innerHTML="两次密码不一致,请重新输入"; 
+        		return false; 
+        	} 
+        	return true; 
+        }
+        //手机号码验证 
+        function checkTel(){ 
+        	var tel=document.getElementById("number").value;
+        	var DivTelId=document.getElementById("number_prompt"); DivTelId.innerHTML=""; 
+        	var reg=/^1\d{10}$/; 
+        	if(reg.test(tel)==false){ 
+        		DivTelId.innerHTML="输入错误，请重新输入"; 
+        		return false; 
+        	} 
+        	DivTelId.innerHTML=""; 
+        	return true; 
+        }
+        
+	</script>
+</body>
+</html>

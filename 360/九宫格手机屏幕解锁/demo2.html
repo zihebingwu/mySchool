@@ -1,0 +1,344 @@
+<html>
+<head lang="en">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+          name="viewport"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=no" /> 
+    <title></title>
+    <link rel="stylesheet" href="ac.js">
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 15px;
+            color: rgb(207,230,254);
+        }
+        .clear{
+            clear: both;
+        }
+        #screen{
+            background: rgb(48,80,101);
+        }
+        @media screen and(min-width: 320px) and(max-width: 1024px){
+            #myCanvas{
+                background: rgb(48,80,101);
+            }
+        }
+        
+        .title{
+            height: 30px;  
+        }
+        .fr{
+            float: right;
+            display: inline-block;
+        }
+        .title img{
+            margin-left: 8px;
+        }
+        #test{
+            position: absolute;
+            bottom: 8rem;
+            left: 2rem;
+            z-index: 666;
+            padding: 35px 150px;
+            height: 30px;
+            box-sizing: border-box;
+        }
+        #test #tipText{
+            margin-bottom: 20px;
+            width: 10rem;
+        }
+        #test input{
+            width: 10rem;
+            font-size: 1rem;
+            color: rgb(255,167,38);         
+            bottom: 1rem;
+        }
+        #myCanvas{
+            display: block;
+            /*用来防止出现导航条*/
+        }
+
+    </style>
+    
+</head>
+<body>
+<div id="screen">
+    <div class="title">
+        <span>中国移动</span>
+        <div class="fr">
+            <img src="pic3.png" width="20px" height="20px" />
+            <img src="pic2.png" width="20px" height="20px"/>
+            <img src="pic1.png" width="20px" height="20px"/>
+            <div class="clear"></div>
+        </div>       
+    </div>
+    <div class="passWord">
+        <canvas id="myCanvas"></canvas>
+        <div id="test"> 
+            <div id="tipText"></div>
+            <input type="radio" name="password" value="设置密码" id="set" checked/>设置密码<br/>
+            <input type="radio" name="password" value="验证密码" onclick="testPassword()"/>验证密码<br/>
+        </div>
+    </div>
+<!--     <div id="tip">
+        <span id="tipText"></span> 
+    </div> -->
+   
+</div>
+<script type="text/javascript">
+        var R = 26;
+        flag = true;
+        borderwidth = 2;
+        var CW = window.screen.width;
+        var CH = window.screen.height;
+        var PointArr = [];
+        var testbtn = document.getElementById("test");
+
+        function createCircle(diffX, diffY) {
+            var Re = [];
+            for (var row = 0; row < 3; row++) {
+                for (var col = 0; col < 3; col++) {
+                    var Point = {
+                        X: ((diffX + borderwidth + R)*( col * 2 + 1)),
+                        Y: ((diffY + borderwidth + R)*(row * 2 + 1))
+                    };
+                    // diffX为圆圈之间的横向距离，diffY为圆圈之间的纵向距离，point(x,y)为每个圆圈的圆心对应的坐标
+                    Re.push(Point);
+                }
+            }
+            return Re;
+        }
+
+        window.onload = function () {
+            var tip = document.getElementById("tipText");
+            tip.innerHTML = "请输入手势密码";
+            var tip = document.getElementById("test");
+
+            var c = document.getElementById("myCanvas");
+            var cxt = c.getContext("2d");
+            // CW = document.body.offsetWidth;
+            c.width = CW;
+            c.height = CH;
+            //两个圆之间的外距离 就是说两个圆心的距离去除两个半径
+            var X = (CW - 2 * 3*(R+borderwidth)) / 6;
+            var Y = (CH - 2 * 3*(R+borderwidth)) / 12;
+            PointArr = createCircle(X, Y);
+
+            bindEvent(c, cxt);
+            Draw(cxt, PointArr, [],null);
+        }
+
+        function Draw(cxt, _PointLocationArr, _LinePointArr,touchPoint) {
+            if (_LinePointArr.length > 0) {
+                cxt.beginPath();
+                for (var i = 0; i < _LinePointArr.length; i++) {
+                    var pointIndex = _LinePointArr[i];
+                    cxt.lineTo(_PointLocationArr[pointIndex].X, _PointLocationArr[pointIndex].Y);
+                }
+                cxt.lineWidth = 10;
+                cxt.strokeStyle = "rgb(255,167,38)";
+                cxt.stroke();
+                cxt.closePath();
+                if(touchPoint!=null)
+                {
+                    var lastPointIndex=_LinePointArr[_LinePointArr.length-1];
+                    var lastPoint=_PointLocationArr[lastPointIndex];
+                    cxt.beginPath();
+                    cxt.moveTo(lastPoint.X,lastPoint.Y);
+                    cxt.lineTo(touchPoint.X,touchPoint.Y);
+                    cxt.stroke();
+                    cxt.closePath();
+
+                }
+            }
+
+            for (var i = 0; i < _PointLocationArr.length; i++) {
+                var Point = _PointLocationArr[i];
+                cxt.fillStyle = "rgb(255,167,38)";
+                cxt.beginPath();
+                cxt.arc(Point.X, Point.Y, R, 0, Math.PI * 2, true);
+                cxt.closePath();
+                cxt.fill();
+
+                cxt.fillStyle = "#ffffff";
+                cxt.beginPath();
+                cxt.arc(Point.X, Point.Y, R - 4, 0, Math.PI * 2, true);
+                cxt.closePath();
+                cxt.fill();
+                // 每个圆由里外两个圆组成，外圆以橘黄色填充，内圆以白色填充，且半径比外圆小
+                if(_LinePointArr.indexOf(i)>=0)
+                {
+                    // 如果这个点已经被存进被选中点的集合中了，就在里面绘制一个小圆
+                    cxt.fillStyle = "rgb(255,167,38)";
+                    cxt.beginPath();
+                    cxt.arc(Point.X, Point.Y, R -14, 0, Math.PI * 2, true);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+
+            }
+        }
+        function IsPointSelect(touches,LinePoint)
+        {
+            // 将点击的点与9个点逐个对比，如果与其中一个点的圆心之间的距离小于半径，则这个点被选中
+            for (var i = 0; i < PointArr.length; i++) {
+                var currentPoint = PointArr[i];
+                var xdiff = Math.abs(currentPoint.X - touches.pageX);
+                var ydiff = Math.abs(currentPoint.Y - touches.pageY);
+                // .pageX .pageY是相对于浏览器窗口可视区域的距离
+                var dir = Math.pow((xdiff * xdiff + ydiff * ydiff), 0.5);
+                // Math.pow(x,y)返回x的y次幂，判断点击的点与坐标原点之间的距离，如果小于R，则此点被选中
+                if (dir < R ) {
+                    if(LinePoint.indexOf(i) < 0){ 
+                        LinePoint.push(i);
+                        // 如果在LinePoint中找不到i，则把它存进LinePoint
+                    }
+                    break;
+                }
+
+            }
+        }
+        function bindEvent(canvasContainer, cxt) {
+             LinePoint = [];
+            canvasContainer.addEventListener("touchstart", function (e) {
+                // 当手指触摸屏幕时触发
+                IsPointSelect(e.touches[0],LinePoint);
+            }, false);
+            canvasContainer.addEventListener("touchmove", function (e) {
+                // 当手指在屏幕上滑动时连续出发
+                e.preventDefault();
+                var touches = e.touches[0];
+                // touches表示当前跟踪的触摸操作的touch对象的数组
+                IsPointSelect(touches,LinePoint);
+                cxt.clearRect(0,0,CW,CH);
+                Draw(cxt,PointArr,LinePoint,{X:touches.pageX,Y:touches.pageY});
+            }, false);
+            canvasContainer.addEventListener("touchend", function (e) {
+                cxt.clearRect(0,0,CW,CH);    
+                Draw(cxt,PointArr,LinePoint,null);
+
+                if(LinePoint.length<6){
+                    tipText.innerHTML = "密码太短，至少需要5个点";
+                    bindEvent(canvasContainer,cxt);
+                    LinePoint = [];
+                    // 如果不把LinePoint清空，下次绘制会从上一次的终点开始绘制
+                }else{                    
+                    if(flag){
+                        tipText.innerHTML = "请再次输入手势密码";
+                        rebindEvent(canvasContainer,cxt);
+                    }
+                }            
+                setTimeout(function(){
+                     cxt.clearRect(0,0,CW,CH);
+                     Draw(cxt, PointArr, [],null);
+                },300)
+                // 当手指离开触屏是要清空痕迹，于此同时给出提示 
+            }, false);
+
+
+        }
+
+        function rebindEvent(can,cxt){
+             var reLinePoint = [];
+             can.addEventListener("touchstart",function (e){ // 当手指触摸屏幕时触发
+                    IsPointSelect(e.touches[0],reLinePoint);
+                    }, false);
+             can.addEventListener("touchmove", function (e) {
+                // 当手指在屏幕上滑动时连续出发
+                       e.preventDefault();
+                     var touches = e.touches[0];
+                // touches表示当前跟踪的触摸操作的touch对象的数组
+                      IsPointSelect(touches,reLinePoint);
+                      cxt.clearRect(0,0,CW,CH);
+                      Draw(cxt,PointArr,reLinePoint,{X:touches.pageX,Y:touches.pageY});
+                   }, false);
+
+              can.addEventListener("touchend",function(e){
+                        cxt.clearRect(0,0,CW,CH);  
+                      
+                    Draw(cxt,PointArr,reLinePoint,null);
+                     // 当手指离开触屏是要清空痕迹，于此同时给出提示
+                    if(reLinePoint.toString() == LinePoint.toString()){
+                        tipText.innerHTML = "密码设置成功";
+                      }else{ 
+                        tipText.innerHTML = "两次输入的不一致";
+                        rebindEvent(can, cxt);
+                        } 
+                        flag = !flag;
+                        reLinePoint = [];
+                    },false);
+                
+        }
+           
+            function testPassword(canvas,cxt){
+             testLinePoint = [];
+             var canvas = document.getElementById("myCanvas");
+             var cxt = canvas.getContext("2d");
+             canvas.addEventListener("touchstart",function (e){ // 当手指触摸屏幕时触发
+                    IsPointSelect(e.touches[0],testLinePoint);
+                    }, false);
+             canvas.addEventListener("touchmove", function (e) {
+                // 当手指在屏幕上滑动时连续出发
+                       e.preventDefault();
+                     var touches = e.touches[0];
+                // touches表示当前跟踪的触摸操作的touch对象的数组
+                      IsPointSelect(touches,testLinePoint);
+                      cxt.clearRect(0,0,CW,CH);
+                      Draw(cxt,PointArr,testLinePoint,{X:touches.pageX,Y:touches.pageY});
+                   }, false);
+
+              canvas.addEventListener("touchend",function(e){
+                        cxt.clearRect(0,0,CW,CH);  
+                      
+                    Draw(cxt,PointArr,testLinePoint,null);
+                     // 当手指离开触屏是要清空痕迹，于此同时给出提示
+                    if(testLinePoint.toString() == LinePoint.toString()){
+                        tipText.innerHTML = "密码正确";
+                      }else{
+                        tipText.innerHTML = "输入的密码不正确";
+                        retestPassword(canvas,cxt);
+                        } 
+                        flag = !flag;
+                        testLinePoint = [];
+                    },false);
+                
+        }
+        function retestPassword(canvas,cxt){
+             retestLinePoint = [];
+             var canvas = document.getElementById("myCanvas");
+             var cxt = canvas.getContext("2d");
+             canvas.addEventListener("touchstart",function (e){ // 当手指触摸屏幕时触发
+                    IsPointSelect(e.touches[0],retestLinePoint);
+                    }, false);
+             canvas.addEventListener("touchmove", function (e) {
+                // 当手指在屏幕上滑动时连续出发
+                       e.preventDefault();
+                     var touches = e.touches[0];
+                // touches表示当前跟踪的触摸操作的touch对象的数组
+                      IsPointSelect(touches,retestLinePoint);
+                      cxt.clearRect(0,0,CW,CH);
+                      Draw(cxt,PointArr,retestLinePoint,{X:touches.pageX,Y:touches.pageY});
+                   }, false);
+
+              canvas.addEventListener("touchend",function(e){
+                        cxt.clearRect(0,0,CW,CH);  
+                      
+                    Draw(cxt,PointArr,retestLinePoint,null);
+                     // 当手指离开触屏是要清空痕迹，于此同时给出提示
+                    if(retestLinePoint.toString() == LinePoint.toString()){
+                        tipText.innerHTML = "密码正确";
+                      }else{
+                        tipText.innerHTML = "输入的密码不正确";
+                        retestPassword(canvas,cxt);
+                        } 
+                        flag = !flag;
+                        testLinePoint = [];
+                    },false);
+                
+        }
+    </script>
+</body>
+</html>
